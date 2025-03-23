@@ -25,7 +25,7 @@ const Layout = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/logo.jpg" />
       </Head>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen overflow-x-hidden">
         <Navbar />
         <main className="flex-grow relative">
           {showShareSidebar && <SocialShareSidebar />}

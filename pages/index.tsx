@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import ArticleHeader from "@/components/ArticleHeader";
 import OrganizationInfo from "@/components/OrganizationInfo";
@@ -13,14 +15,21 @@ import type { NewsCard as NewsCardType, StatItem } from "@/types";
 import type { EventType } from "@/components/events/EventCard";
 
 const HomePage = () => {
+  // For SSR compatibility
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   // Sample data for the news cards
   const featuredNews: NewsCardType = {
     id: "1",
-    category: "GAZA-ISRAEL WAR",
-    title: "MSF mourns the killing of our tenth colleague in Gaza",
-    date: "21 MAR 2025",
-    image: "/placeholder.svg?height=600&width=800",
-    slug: "msf-mourns-colleague-gaza",
+    category: "ANNUAL CONFERENCE",
+    title: "International Men as Allies Summit 2025: Registration Now Open",
+    date: "June 15-17, 2025 • New York City",
+    image: "/images/img-2.jpg",
+    slug: "men-allies-summit-2025",
   };
 
   const latestNews: NewsCardType[] = [
@@ -64,12 +73,12 @@ const HomePage = () => {
     },
   ];
 
-  // Sample data for the stats section
+  // Stats for Men for Equality
   const stats: StatItem[] = [
-    { value: "16.5M", label: "OUTPATIENT CONSULTATIONS" },
-    { value: "3.7M", label: "MALARIA CASES TREATED" },
-    { value: "1.4M", label: "PATIENTS ADMITTED" },
-    { value: "74", label: "COUNTRIES" },
+    { value: "25K+", label: "MEN ENGAGED" },
+    { value: "150+", label: "WORKSHOPS HELD" },
+    { value: "48", label: "POLICY CHANGES" },
+    { value: "32", label: "COUNTRIES" },
   ];
 
   // Sample data for the in focus section
@@ -155,38 +164,133 @@ const HomePage = () => {
     },
   ];
 
-  return (
-    <Layout>
-      {/* Tuberculosis Article Header */}
-      <ArticleHeader
-        date="20 Mar 2025"
-        type="Press Release"
-        category="Tuberculosis"
-        imageUrl="/images/img-1.jpg"
-        title="Countries and donors must sustain investment in fight against tuberculosis in children"
-        description="With WHO estimating that only half of the 1.25 million children and young adolescents who fall ill with TB each year being diagnosed, MSF is calling for sustaining investment in paediatric TB."
-      />
+  // Don't render animations until client-side
+  if (!isMounted) {
+    return (
+      <Layout showShareSidebar={true}>
+        <div id="about-us">
+          <ArticleHeader
+            date="20 Mar 2025"
+            type="Initiative"
+            category="Gender Equality"
+            imageUrl="/images/img-1.jpg"
+            title="Men championing a world of equal rights and opportunities for all genders"
+            description="Men for Equality is committed to engaging men and boys as allies in the fight for gender equality. Join our movement to challenge harmful stereotypes and build a more equitable society for everyone."
+          />
+        </div>
+        <div id="what-we-do">
+          <OrganizationInfo
+            stats={stats}
+            title="Empowering men to advocate for gender equality"
+            description="We engage men and boys as active allies in creating a more equal society. Through education, advocacy, and community involvement, we work to challenge harmful gender stereotypes and promote healthy masculinity. Our approach is guided by the"
+          />
+        </div>
+      </Layout>
+    );
+  }
 
-      {/* Organization Info Section */}
-      <OrganizationInfo
-        stats={stats}
-        title="An international, independent medical humanitarian organisation"
-        description="We provide medical assistance to people affected by conflict, epidemics, disasters, or exclusion from healthcare. Our teams are made up of tens of thousands of health professionals, logistic and administrative staff - most of them hired locally. Our actions are guided by medical ethics and the"
-      />
-      <FeaturedNews title="Featured" news={featuredNews} />
-      <NewsGrid title="Latest" news={latestNews} />
+  return (
+    <Layout showShareSidebar={true}>
+      <div id="about-us">
+        <ArticleHeader
+          date="20 Mar 2025"
+          type="Initiative"
+          category="Gender Equality"
+          imageUrl="/images/img-1.jpg"
+          title="Men championing a world of equal rights and opportunities for all genders"
+          description="Men for Equality is committed to engaging men and boys as allies in the fight for gender equality. Join our movement to challenge harmful stereotypes and build a more equitable society for everyone."
+        />
+      </div>
+
+      <motion.div
+        id="what-we-do"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <OrganizationInfo
+          stats={stats}
+          title="Empowering men to advocate for gender equality"
+          description="We engage men and boys as active allies in creating a more equal society. Through education, advocacy, and community involvement, we work to challenge harmful gender stereotypes and promote healthy masculinity. Our approach is guided by the"
+        />
+      </motion.div>
+
+      <motion.div
+        id="latest"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <FeaturedNews title="Featured" news={featuredNews} />
+        <NewsGrid title="Latest" news={latestNews} />
+      </motion.div>
 
       {/* Newsletter Subscription */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <NewsletterSubscription />
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <div className="container mx-auto px-4 py-16">
+          <div className="max-w-4xl mx-auto">
+            <NewsletterSubscription />
+          </div>
         </div>
-      </div>
-      <EventsSection upcomingEvents={upcomingEvents} pastEvents={pastEvents} />
-      <InFocusSection items={focusItems} />
-      <WhereWeWork />
-      <WorkWithMSF />
-      <DonationStats />
+      </motion.div>
+
+      <motion.div
+        id="events"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <EventsSection
+          upcomingEvents={upcomingEvents}
+          pastEvents={pastEvents}
+        />
+      </motion.div>
+
+      <motion.div
+        id="resources"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <InFocusSection items={focusItems} />
+      </motion.div>
+
+      <motion.div
+        id="where-we-work"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <WhereWeWork />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <WorkWithMSF />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <DonationStats />
+      </motion.div>
     </Layout>
   );
 };

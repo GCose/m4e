@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const DonationStats = () => {
   return (
-    <section className="py-16 bg-gray-900 text-white">
+    <section className="sm:px-0 lg:px-40 py-16 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-1">
