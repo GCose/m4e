@@ -49,11 +49,11 @@ const Navbar = () => {
               </Link>
             ) : (
               <>
-                <Link href="/login" className="hover:text-red-500 transition">
+                <Link href="/auth" className="hover:text-red-500 transition">
                   Login
                 </Link>
                 <Link
-                  href="/register"
+                  href="/auth/register"
                   className="hover:text-red-500 transition"
                 >
                   Register
@@ -96,11 +96,11 @@ const Navbar = () => {
             <Link href="/" className="flex-shrink-0">
               <div className="relative h-12 w-36">
                 <Image
-                  width={144}
+                  width={100}
                   height={48}
                   alt="MSF Logo"
-                  className="object-contain"
                   src="/images/logo.jpg"
+                  className="object-contain"
                 />
               </div>
             </Link>
@@ -129,7 +129,7 @@ const Navbar = () => {
 
               <Link
                 href="/donate"
-                className="hidden md:block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-md transition-colors uppercase"
+                className="hidden md:block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-2xl transition-colors uppercase"
               >
                 Donate
               </Link>

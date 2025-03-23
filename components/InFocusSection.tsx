@@ -84,7 +84,7 @@ const InFocusSection = ({ items }: InFocusSectionProps) => {
         <div className="flex justify-center mt-8">
           <Link
             href="/in-focus"
-            className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 uppercase"
+            className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 uppercase rounded-2xl"
           >
             View More
           </Link>

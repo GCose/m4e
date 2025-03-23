@@ -23,14 +23,14 @@ const FeaturedNews = ({ title, news }: FeaturedNewsProps) => {
 
   return (
     <section className="sm:px-0 lg:px-40 py-16 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 rounded-2xl">
         <h2 className="text-3xl font-bold mb-8">{title}</h2>
-        <div className="relative bg-black h-[500px] border-r-4">
+        <div className="relative bg-black h-[500px] rounded-4xl">
           <Image
             fill
             alt={news.title}
             src="/images/img-2.jpg"
-            className="object-cover opacity-50"
+            className="object-cover opacity-50 rounded-4xl"
           />
           <div className="absolute right-0 top-0 bg-black text-white p-4 w-1/3 h-full">
             <div className="mb-2">
@@ -39,7 +39,7 @@ const FeaturedNews = ({ title, news }: FeaturedNewsProps) => {
               </span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-3">
-              <Link href={`/news/${news.slug}`} className="hover:underline">
+              <Link href={`/news/${news.slug}`} className="hover:underline ">
                 {news.title}
               </Link>
             </h3>
