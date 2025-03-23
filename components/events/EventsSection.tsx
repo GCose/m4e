@@ -17,7 +17,7 @@ const EventsSection = ({ upcomingEvents, pastEvents }: EventsSectionProps) => {
           <h2 className="text-3xl font-bold">Events</h2>
           <Link
             href="/events"
-            className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-md transition-colors"
+            className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-2xl transition-colors"
           >
             View All Events
           </Link>

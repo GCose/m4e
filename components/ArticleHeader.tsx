@@ -23,10 +23,12 @@ const ArticleHeader = ({
       <Image
         fill
         alt={title}
-        className="object-cover"
+        className="object-cover z-0"
         src={imageUrl || "/placeholder.svg"}
       />
-      <div className="absolute inset-0 flex items-center sm:px-0 lg:px-40">
+      {/* Linear gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30 z-10"></div>
+      <div className="absolute inset-0 flex items-center sm:px-0 lg:px-40 z-20">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="text-white">

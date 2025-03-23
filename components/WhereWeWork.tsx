@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,22 +11,24 @@ const WhereWeWork = () => {
     <section className="py-16 bg-white relative">
       <SocialShareSidebar />
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-6">Where we work</h2>
-        <p className="text-lg mb-8 max-w-3xl">
+        <h2 className="text-4xl font-bold mb-6 sm:text-left lg:text-center">
+          Where we work
+        </h2>
+        <p className="text-lg mb-8 max-w-3xl sm:text-left lg:text-center lg:m-auto">
           In more than 70 countries, Médecins Sans Frontières provides medical
           humanitarian assistance to save lives and ease the suffering of people
           in crisis situations.
         </p>
-        <div className="mb-8">
+        <div className="mt-8 mb-8 sm:text-left lg:text-center">
           <Link
             href="/where-we-work/countries"
-            className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 uppercase text-sm"
+            className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 uppercase text-sm rounded-2xl"
           >
             View All Countries
           </Link>
         </div>
 
-        <div className="bg-white">
+        <div className="bg-white sm:px-0 lg:px-40 py-16">
           <div className="flex justify-end p-2 border-b">
             <div className="inline-flex rounded-md shadow-sm">
               <button
@@ -56,18 +56,13 @@ const WhereWeWork = () => {
             </div>
           </div>
 
-          <div className="relative aspect-[16/9] w-full">
+          <div className="relative aspect-[16/9] w-full rounded-2xl">
             <Image
-              src="/placeholder.svg?height=600&width=1200"
-              alt="MSF Operations Map"
               fill
-              className="object-cover"
+              src="/images/img-9.jpg"
+              alt="MSF Operations Map"
+              className="object-cover rounded-4xl"
             />
-            <div className="absolute bottom-2 right-2 text-xs text-gray-500 bg-white bg-opacity-70 p-1 rounded">
-              The place names and boundaries in this map do not reflect any
-              position by MSF on their legal status. This map uses the
-              Gall-Peters equal-area map projection.
-            </div>
           </div>
         </div>
       </div>
