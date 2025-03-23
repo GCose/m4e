@@ -14,7 +14,7 @@ const OrganizationInfo = ({
 }: OrganizationInfoProps) => {
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto sm:px-0 lg:px-40">
         <div className="max-w-4xl">
           <h2 className="text-3xl font-bold mb-6">{title}</h2>
           <p className="text-lg text-gray-600 mb-6">

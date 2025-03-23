@@ -15,17 +15,19 @@ interface InFocusSectionProps {
 
 const InFocusSection = ({ items }: InFocusSectionProps) => {
   return (
-    <section className="py-16 bg-white">
+    <section className="sm:px-0 lg:px-40 py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-red-600 uppercase font-bold mb-8">In Focus</h2>
+        <h2 className="text-gray-600 text-3xl uppercase font-bold mb-8">
+          In Focus
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {items.map((item) => (
             <div key={item.id} className="border border-gray-200">
               <div className="relative h-48">
                 <Image
-                  src={item.image || "/placeholder.svg"}
-                  alt={item.title}
                   fill
+                  alt={item.title}
+                  src="/images/img-6.jpg"
                   className="object-cover"
                 />
               </div>
@@ -48,14 +50,14 @@ const InFocusSection = ({ items }: InFocusSectionProps) => {
             <svg
               width="24"
               height="24"
-              viewBox="0 0 24 24"
               fill="none"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
+                strokeWidth="2"
                 d="M15 18L9 12L15 6"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -65,14 +67,14 @@ const InFocusSection = ({ items }: InFocusSectionProps) => {
             <svg
               width="24"
               height="24"
-              viewBox="0 0 24 24"
               fill="none"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
+                strokeWidth="2"
                 d="M9 18L15 12L9 6"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />

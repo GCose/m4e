@@ -11,7 +11,7 @@ const EventsSection = ({ upcomingEvents, pastEvents }: EventsSectionProps) => {
   const [activeTab, setActiveTab] = useState<"upcoming" | "past">("upcoming");
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="sm:px-0 lg:px-40 py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold">Events</h2>

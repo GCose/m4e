@@ -58,9 +58,9 @@ const NewsCard = ({ news, variant = "default" }: NewsCardProps) => {
     <div className="group overflow-hidden bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
       <div className="relative h-48 overflow-hidden">
         <Image
-          src={image || "/placeholder.svg"}
-          alt={title}
           fill
+          alt={title}
+          src="/images/img-5.jpg"
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>

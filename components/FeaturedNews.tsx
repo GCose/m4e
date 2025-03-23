@@ -8,7 +8,6 @@ interface FeaturedNewsProps {
 }
 
 const FeaturedNews = ({ title, news }: FeaturedNewsProps) => {
-  // Add a check to handle undefined news prop
   if (!news) {
     return (
       <section className="py-16 bg-white">
@@ -23,14 +22,14 @@ const FeaturedNews = ({ title, news }: FeaturedNewsProps) => {
   }
 
   return (
-    <section className="py-16 bg-white">
+    <section className="sm:px-0 lg:px-40 py-16 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">{title}</h2>
-        <div className="relative bg-black h-[500px]">
+        <div className="relative bg-black h-[500px] border-r-4">
           <Image
-            src={news.image || "/placeholder.svg"}
-            alt={news.title}
             fill
+            alt={news.title}
+            src="/images/img-2.jpg"
             className="object-cover opacity-50"
           />
           <div className="absolute right-0 top-0 bg-black text-white p-4 w-1/3 h-full">
