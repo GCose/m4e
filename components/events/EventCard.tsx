@@ -23,9 +23,9 @@ const EventCard = ({ event }: EventCardProps) => {
     <div className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
       <div className="relative h-48">
         <Image
-          src={event.image || "/placeholder.svg"}
-          alt={event.title}
           fill
+          alt={event.title}
+          src="/images/img-3.jpg"
           className="object-cover"
         />
         {event.isPast && (

@@ -14,7 +14,7 @@ const NewsGrid = ({
   viewMoreLink = "/latest",
 }: NewsGridProps) => {
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="sm:px-0 lg:px-40 py-16 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold uppercase">{title}</h2>
@@ -43,14 +43,14 @@ const NewsGrid = ({
             <svg
               width="24"
               height="24"
-              viewBox="0 0 24 24"
               fill="none"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
+                strokeWidth="2"
                 d="M15 18L9 12L15 6"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -60,14 +60,14 @@ const NewsGrid = ({
             <svg
               width="24"
               height="24"
-              viewBox="0 0 24 24"
               fill="none"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
+                strokeWidth="2"
                 d="M9 18L15 12L9 6"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
