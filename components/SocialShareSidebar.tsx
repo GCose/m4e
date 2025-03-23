@@ -1,9 +1,28 @@
 import Link from "next/link";
 import { Facebook, Twitter, Mail, Printer, Link2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const SocialShareSidebar = () => {
+  // Animation for sidebar
+  const sidebarAnimation = {
+    initial: { opacity: 0, x: -20 },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 0.3,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className="fixed left-0 top-1/3 z-30 hidden md:block">
+    <motion.div
+      className="fixed left-0 top-1/3 z-50 hidden md:block"
+      initial={sidebarAnimation.initial}
+      animate={sidebarAnimation.animate}
+    >
       <div className="bg-white shadow-lg p-4 rounded-2xl ml-4">
         <div className="mb-4">
           <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2">
@@ -48,7 +67,7 @@ const SocialShareSidebar = () => {
           Copy link
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
